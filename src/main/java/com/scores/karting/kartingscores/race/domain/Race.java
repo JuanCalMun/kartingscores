@@ -1,8 +1,9 @@
 package com.scores.karting.kartingscores.race.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.scores.karting.kartingscores.timerecord.domain.TimeRecord;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Race {
@@ -13,4 +14,8 @@ public class Race {
     private String raceUID;
     private String name;
     private final int totalLaps = 10;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "race")
+    private List<TimeRecord> timeRecords;
 }
