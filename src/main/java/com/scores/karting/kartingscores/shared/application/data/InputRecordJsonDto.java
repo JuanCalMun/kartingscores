@@ -1,4 +1,4 @@
-package com.scores.karting.kartingscores.shared.domain;
+package com.scores.karting.kartingscores.shared.application.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class InputRecordDto {
+public class InputRecordJsonDto {
 
     @JsonProperty("_id")
     private String id;
@@ -15,5 +15,5 @@ public class InputRecordDto {
     private String name;
     private String team;
     @JsonProperty("races")
-    private List<RaceTimesDto> raceTimesDtoList;
+    private List<RaceTimesJsonDto> raceTimesDtoList;
 }

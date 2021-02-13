@@ -2,7 +2,7 @@ package com.scores.karting.kartingscores.shared.application;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.scores.karting.kartingscores.shared.domain.InputRecordDto;
+import com.scores.karting.kartingscores.shared.application.data.InputRecordJsonDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +12,15 @@ import java.util.Optional;
 
 @Service
 @Log4j2
-public class RecordSaver {
+public class DataSaver {
 
     public void save(final String records) {
 
-        Optional<List<InputRecordDto>> inputRecordDtoList = Optional.empty();
+        Optional<List<InputRecordJsonDto>> inputRecordDtoList = Optional.empty();
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            InputRecordDto[] inputRecordDtos = objectMapper.readValue(records, InputRecordDto[].class);
+            InputRecordJsonDto[] inputRecordDtos = objectMapper.readValue(records, InputRecordJsonDto[].class);
             inputRecordDtoList = Optional.of(List.of(inputRecordDtos));
         } catch (JsonProcessingException e) {
             log.error(e.getMessage());
