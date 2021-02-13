@@ -6,9 +6,6 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class RaceTimesDto {
-    private String name;
-
-    @JsonProperty("laps")
-    private List<TimeDto> laps;
+public class TimeDto {
+    private String time;
 }
